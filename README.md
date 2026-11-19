@@ -1,9 +1,11 @@
-🚀 Framework de Automatización de Pruebas — TalentoLab
-CI Status
+# 🚀 Framework de Automatización de Pruebas — TalentoLab
 
-Framework profesional de automatización de pruebas QA que cubre UI, API yBDD, con reportes HTML, logging, capturas automáticas y pipeline de CI/CD.
+![CI Status](https://github.com/PalvareZ0/proyecto-final-automation-testing-palvarez/actions/workflows/ci.yml/badge.svg)
 
-Proyecto Final — Curso QA Automation Testing (TalentoTech 2026)
+Framework profesional de automatización de pruebas QA que cubre **UI**, **API** y
+**BDD**, con reportes HTML, logging, capturas automáticas y pipeline de CI/CD.
+
+> Proyecto Final — Curso QA Automation Testing (TalentoTech 2026)
 
 ---
 
@@ -39,7 +41,7 @@ Demostrar un framework de testing completo en Python que combine:
 ## 📁 Estructura del proyecto
 
 ```
-proyecto-final-automation-testing-[nombre-apellido]/
+proyecto-final-automation-testing-palvarez/
 ├── pages/                     # Page Object Model (Clase 9)
 │   ├── login_page.py
 │   ├── inventory_page.py
@@ -90,7 +92,8 @@ proyecto-final-automation-testing-[nombre-apellido]/
 ### 1) Clonar el repositorio
 
 ```bash
-git clone https://github.com/PalvareZ0/proyecto-final-automation-testing-palvarez.gitcd proyecto-final-automation-testing-palvarez
+git clone https://github.com/PalvareZ0/proyecto-final-automation-testing-palvarez.git
+cd proyecto-final-automation-testing-palvarez
 ```
 
 ### 2) Crear y activar un entorno virtual (recomendado)
@@ -198,11 +201,14 @@ El pipeline vive en `.github/workflows/ci.yml` y se dispara en cada `push` o
 
 ### Estado del pipeline (badge)
 
-Agregá esta línea al inicio de tu README (reemplazando usuario y repo):
+El estado del pipeline de CI se muestra en tiempo real con el siguiente badge
+arriba del README:
 
-```markdown
-![CI Status](https://github.com/TU_USUARIO/TU_REPOSITORIO/actions/workflows/ci.yml/badge.svg)
-```
+![CI Status](https://github.com/PalvareZ0/proyecto-final-automation-testing-palvarez/actions/workflows/ci.yml/badge.svg)
+
+Si el badge dice **`passing`** (verde) la última corrida del pipeline terminó
+OK. Si dice **`failing`** (rojo) hubo algún fallo en la última corrida y hay
+que revisar la pestaña Actions para ver el detalle.
 
 ---
 
@@ -232,7 +238,7 @@ Agregá esta línea al inicio de tu README (reemplazando usuario y repo):
 - `login.feature`: login exitoso + esquema de errores (4 casos).
 - `cart.feature`: agregar 1 producto, agregar 2 productos.
 - `operaciones.feature`: multiplicación parametrizada (4 casos).
-- `demo_fallo.feature`: escenario que falla a propósito (verifica el hook de captura).
+- `demo_fallo.feature`: escenario que falla a propósito (verifica el hook de captura). **Desactivado con `@wip`** para que el pipeline de CI quede verde; se puede reactivar sacándole el tag para correrlo en local.
 
 ---
 
