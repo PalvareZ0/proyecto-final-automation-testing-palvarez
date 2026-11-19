@@ -1,9 +1,9 @@
-# 🚀 Framework de Automatización de Pruebas — TalentoLab
+🚀 Framework de Automatización de Pruebas — TalentoLab
+CI Status
 
-Framework profesional de automatización de pruebas QA que cubre **UI**, **API** y
-**BDD**, con reportes HTML, logging, capturas automáticas y pipeline de CI/CD.
+Framework profesional de automatización de pruebas QA que cubre UI, API yBDD, con reportes HTML, logging, capturas automáticas y pipeline de CI/CD.
 
-> Proyecto Final — Curso QA Automation Testing (TalentoTech 2026)
+Proyecto Final — Curso QA Automation Testing (TalentoTech 2026)
 
 ---
 
@@ -90,8 +90,7 @@ proyecto-final-automation-testing-[nombre-apellido]/
 ### 1) Clonar el repositorio
 
 ```bash
-git clone https://github.com/TU_USUARIO/proyecto-final-automation-testing-nombre-apellido.git
-cd proyecto-final-automation-testing-nombre-apellido
+git clone https://github.com/PalvareZ0/proyecto-final-automation-testing-palvarez.gitcd proyecto-final-automation-testing-palvarez
 ```
 
 ### 2) Crear y activar un entorno virtual (recomendado)
