@@ -5,11 +5,15 @@ Encapsula selectores y acciones de la página /cart.html. Permite leer los
 productos agregados, verificar si un producto específico está en el carrito,
 continuar comprando o iniciar el checkout.
 """
+import time
+
+from selenium.common.exceptions import StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 ESPERA_MAX = 10  # segundos
+STALE_REINTENTOS = 3  # reintentos ante StaleElementReferenceException
 
 
 class CartPage:
@@ -38,9 +42,23 @@ class CartPage:
         return len(self.driver.find_elements(*self._CART_ITEMS))
 
     def obtener_nombres_productos(self) -> list:
-        """Nombres de todos los productos en el carrito."""
-        elementos = self.driver.find_elements(*self._ITEM_NAMES)
-        return [e.text for e in elementos]
+        """Nombres de todos los productos en el carrito.
+
+        Re-busca los elementos si SauceDemo re-renderiza la lista entre el
+        ``find_elements`` y el ``.text`` (StaleElementReferenceException),
+        que es la causa habitual de los tests flaky del carrito.
+        """
+        for intento in range(1, STALE_REINTENTOS + 1):
+            elementos = self.driver.find_elements(*self._ITEM_NAMES)
+            try:
+                return [e.text for e in elementos]
+            except StaleElementReferenceException:
+                # La página re-renderizó la lista mientras la leíamos.
+                # Esperamos un instante y reintentamos con referencias frescas.
+                if intento == STALE_REINTENTOS:
+                    raise
+                time.sleep(0.5)
+        return []  # inalcanzable, pero explícito para el linter
 
     def contiene_producto(self, nombre_producto: str) -> bool:
         """True si el producto indicado está en el carrito."""
